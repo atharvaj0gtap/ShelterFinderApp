@@ -4,21 +4,4 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewBooking">
-
-    <TextView
-        android:id="@+id/dateTextView"
-        android:layout_width="111dp"
-        android:layout_height="36dp"
-        android:layout_below="@id/datePicker"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="Select Date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".ViewBooking"/>

@@ -18,7 +18,7 @@ public class ViewBooking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_booking);
 
-        dateTextView = findViewById(R.id.dateTextView);
+      //  dateTextView = findViewById(R.id.dateTextView);
 
         dateTextView.setOnClickListener(new View.OnClickListener() {
             @Override
