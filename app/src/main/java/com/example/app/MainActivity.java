@@ -25,10 +25,12 @@ public class MainActivity extends AppCompatActivity {
     EditText password;
 
     private int mYear, mMonth, mDay, mHour, mMinute;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*
         username=findViewById(R.id.editTextText);
         email=findViewById(R.id.editTextText2);
 
@@ -113,5 +115,7 @@ public class MainActivity extends AppCompatActivity {
     }
     boolean isValidPasswordCriteria(String password) {
         return password.matches(".*[0-9].*") && password.matches(".*[A-Z].*") && password.matches(".*[@#$%^&+=!].*");
+    }
+         */
     }
 }

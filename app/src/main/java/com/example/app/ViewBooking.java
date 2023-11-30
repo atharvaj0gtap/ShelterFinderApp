@@ -3,53 +3,70 @@ package com.example.app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
-import android.icu.text.DateFormat;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.EditText;
+
+import java.util.Calendar;
 
 public class ViewBooking extends AppCompatActivity {
-    private TextView dateTextView;
+    EditText fromdate, todate;
+    private int fYear, fMonth, fDay, tYear, tMonth, tDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_booking);
 
-      //  dateTextView = findViewById(R.id.dateTextView);
-
-        dateTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDatePickerDialog();
-            }
-        });
+        fromdate = (EditText) findViewById(R.id.fromdateInp);
+        todate = (EditText) findViewById(R.id.todateInp);
     }
 
-    private void showDatePickerDialog() {
-        // Get the selected date from the DatePicker
-        int year = 2022;
-        int month = 02;
-        int day = 01;
+    public void setFromDate(View v){
+        if (v == fromdate) {
 
-        // Create and show the Date Picker Dialog
-        DatePickerDialog datePickerDialog = new DatePickerDialog(
-                this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        // Display the selected date in your desired format
-                        String selectedDate = day + "-" + (month + 1) + "-" + year;
-                        // Update the TextView with the selected date
-                        dateTextView.setText(selectedDate);
-                        Toast.makeText(ViewBooking.this, "Selected Date: " + selectedDate, Toast.LENGTH_SHORT).show();
-                    }
-                },
-                year, month, day);
+            final Calendar c = Calendar.getInstance();
+            fYear = c.get(Calendar.YEAR);
+            fMonth = c.get(Calendar.MONTH);
+            fDay = c.get(Calendar.DAY_OF_MONTH);
 
-        // Show the Date Picker Dialog
-        datePickerDialog.show();
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+
+                            fromdate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        }
+                    }, fYear, fMonth, fDay);
+            datePickerDialog.show();
+        }
     }
+
+    public void setToDate(View v){
+        if (v == todate) {
+
+            final Calendar c = Calendar.getInstance();
+            tYear = c.get(Calendar.YEAR);
+            tMonth = c.get(Calendar.MONTH);
+            tDay = c.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                    new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker view, int year,
+                                              int monthOfYear, int dayOfMonth) {
+
+                            todate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        }
+                    }, tYear, tMonth, tDay);
+            datePickerDialog.show();
+        }
+    }
+
+    public void onBack(View v){
+
+    }
+
 }
