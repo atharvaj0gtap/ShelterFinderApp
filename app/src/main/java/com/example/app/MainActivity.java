@@ -1,7 +1,5 @@
 package com.example.app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +10,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
+
     EditText username;
     EditText email;
     RadioGroup radioGroup;
@@ -25,21 +26,19 @@ public class MainActivity extends AppCompatActivity {
     EditText password;
 
     private int mYear, mMonth, mDay, mHour, mMinute;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*
         username=findViewById(R.id.editTextText);
         email=findViewById(R.id.editTextText2);
 
         radioGroup = findViewById(R.id.radioGroup);
 
         date=findViewById(R.id.editTextDate);
-        date.setOnClickListener(this);
+
 
         password=findViewById(R.id.editTextTextPassword);
+
     }
     public void onRegister(View view){
         String user = username.getText().toString();
@@ -70,17 +69,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (user.length() > 0 && isValidEmail(mail) && !gender.isEmpty() && !dateOfBirth.isEmpty() && isValidPassword(pass)) {
-            Intent intent = new Intent(this, secondActivity.class);
+            Intent intent = new Intent(this, WelcomeActivity.class);
             intent.putExtra("username", user);
-            intent.putExtra("email", mail);
-            intent.putExtra("gender", gender);
-            intent.putExtra("dateOfBirth", dateOfBirth);
             startActivity(intent);
         }
+
+
     }
 
-    @Override
-    public void onClick(View v) {
+
+    public void onDate(View v) {
         if (v == date) {
 
             final Calendar c = Calendar.getInstance();
@@ -116,6 +114,6 @@ public class MainActivity extends AppCompatActivity {
     boolean isValidPasswordCriteria(String password) {
         return password.matches(".*[0-9].*") && password.matches(".*[A-Z].*") && password.matches(".*[@#$%^&+=!].*");
     }
-         */
-    }
+
+
 }

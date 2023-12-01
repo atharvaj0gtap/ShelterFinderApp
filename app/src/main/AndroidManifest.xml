@@ -19,6 +19,9 @@
             android:name=".ViewBooking"
             android:exported="true" />
         <activity
+            android:name=".WelcomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -28,8 +31,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ViewListing"
+            android:name=".Listing"
             android:exported="true" />
     </application>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>
