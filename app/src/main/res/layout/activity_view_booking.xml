@@ -153,6 +153,7 @@
         android:layout_height="237dp"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="Add comment...."
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
