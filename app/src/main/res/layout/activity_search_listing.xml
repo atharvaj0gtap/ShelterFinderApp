@@ -2,12 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cityText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchListing">
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/CityText"
         android:layout_width="0dp"
         android:layout_height="58dp"
         android:layout_marginTop="36dp"
@@ -25,23 +26,22 @@
         android:id="@+id/Smoketext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="23dp"
-        android:text="Smoke-Friendly"
+        android:layout_marginStart="28dp"
+        android:text="Smoke-Friendly?"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/smokeGroup" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/SmokeCheckBox"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/PetText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="32dp"
-        android:text="Pet-Friendly"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="10dp"
+        android:text="Pet-Friendly?"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/petGroup" />
+        app:layout_constraintBottom_toBottomOf="@+id/petCheckBox"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/privacytext"
@@ -61,8 +61,8 @@
         android:layout_marginEnd="18dp"
         android:text="City:"
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editTextText4"
-        app:layout_constraintEnd_toStartOf="@+id/editTextText4"
+        app:layout_constraintBaseline_toBaselineOf="@+id/CityText"
+        app:layout_constraintEnd_toStartOf="@+id/CityText"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -105,65 +105,51 @@
         android:layout_marginStart="42dp"
         android:layout_marginTop="119dp"
         android:layout_marginEnd="41dp"
-        android:layout_marginBottom="120dp"
-        app:layout_constraintBottom_toTopOf="@+id/petGroup"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText4"
+        app:layout_constraintEnd_toEndOf="@+id/CityText"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/BackButton" />
 
-    <RadioGroup
-        android:id="@+id/petGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/smokeGroup"
-        app:layout_constraintStart_toEndOf="@+id/PetText">
-
-        <RadioButton
-            android:id="@+id/radioButton9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Yes" />
-
-        <RadioButton
-            android:id="@+id/radioButton7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No" />
-    </RadioGroup>
-
-    <RadioGroup
-        android:id="@+id/smokeGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginBottom="41dp"
-        app:layout_constraintBottom_toTopOf="@+id/Search"
-        app:layout_constraintStart_toEndOf="@+id/Smoketext">
-
-        <RadioButton
-            android:id="@+id/radioButton10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Yes" />
-
-        <RadioButton
-            android:id="@+id/radioButton11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No" />
-    </RadioGroup>
-
     <EditText
-        android:id="@+id/editTextText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/Numguests"
+        android:layout_width="68dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:inputType="text"
-        android:text="0"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="272dp" />
+        android:text="#"
+        app:layout_constraintBaseline_toBaselineOf="@+id/guestNumber"
+        app:layout_constraintStart_toEndOf="@+id/guestNumber" />
+
+    <CheckBox
+        android:id="@+id/petCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@+id/Numguests"
+        app:layout_constraintTop_toBottomOf="@+id/Numguests" />
+
+    <CheckBox
+        android:id="@+id/SmokeCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/Smoketext"
+        app:layout_constraintTop_toBottomOf="@+id/petCheckBox" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="91dp"
+        android:layout_height="20dp"
+        android:drawableLeft="@drawable/username"
+        android:text="username"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.979"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.011" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
