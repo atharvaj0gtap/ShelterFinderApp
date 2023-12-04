@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -122,6 +123,7 @@ public class Listing extends AppCompatActivity {
 
 
     public void onList(View v){
+        ArrayList<String> arr = new ArrayList<>();
         if(!isValidCity())
             Toast.makeText(this, "Please enter a City", Toast.LENGTH_SHORT).show();
 
@@ -142,7 +144,7 @@ public class Listing extends AppCompatActivity {
 
         // NEED TO SEND DATA TO THE VIEW LISTINGS
         Shelter curShelter = new Shelter(username.getText().toString(),city.getText().toString(),address.getText().toString(),privacy.getSelectedItem().toString(),petF.isChecked(),smokeF.isChecked()
-                ,maxOcc.getText().toString(),startDate.getText().toString(),endDate.getText().toString(),image,null,0);
+                ,maxOcc.getText().toString(),startDate.getText().toString(),endDate.getText().toString(),image,arr,0);
 
       /*  Shelter(String listerName, String name, String city, String address, String privacy,
         boolean petFriendly, boolean smokeFriendly, int occupancy,
