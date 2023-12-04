@@ -13,12 +13,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Listing extends AppCompatActivity {
     EditText city, address, startDate, endDate,maxOcc;
@@ -118,12 +122,35 @@ public class Listing extends AppCompatActivity {
 
 
     public void onList(View v){
-        // NEED TO SEND DATA TO THE VIEW LISTINGS
+        if(!isValidCity())
+            Toast.makeText(this, "Please enter a City", Toast.LENGTH_SHORT).show();
 
-        //go back to welcome screen when clicked
-        Intent intent = new Intent(this, WelcomeActivity.class);
-        intent.putExtra("username", username.getText().toString());
-        // Start the Welcome screen activity
+        else if(!isValidAddress())
+            Toast.makeText(this, "Please enter a address", Toast.LENGTH_SHORT).show();
+
+        else if (!isValidMaxOccupancy())
+            Toast.makeText(this, "Please enter a valid Max Occupancy (Hint: Integer > 0 )", Toast.LENGTH_SHORT).show();
+
+        else if (!isValidDates())
+            Toast.makeText(this, "Please enter a valid start and/or end date", Toast.LENGTH_SHORT).show();
+
+
+
+        if (!isValidCity() || !isValidAddress() || !isValidMaxOccupancy() || !isValidDates()) {
+                return;
+            }
+
+        // NEED TO SEND DATA TO THE VIEW LISTINGS
+        Shelter curShelter = new Shelter(username.getText().toString(),city.getText().toString(),address.getText().toString(),privacy.getSelectedItem().toString(),petF.isChecked(),smokeF.isChecked()
+                ,maxOcc.getText().toString(),startDate.getText().toString(),endDate.getText().toString(),image,null,0);
+
+      /*  Shelter(String listerName, String name, String city, String address, String privacy,
+        boolean petFriendly, boolean smokeFriendly, int occupancy,
+        String image, String review, double rating) */
+
+        Intent intent = new Intent(this, SearchListing.class);
+        intent.putExtra("shelter", curShelter);
+        // Start the activity
         startActivity(intent);
 
 
@@ -143,5 +170,58 @@ public class Listing extends AppCompatActivity {
             }
         }
     }
+
+
+    private boolean isValidCity() {
+        String cityText = city.getText().toString().trim();
+        return !cityText.isEmpty(); // Add more validation as needed
+    }
+
+    private boolean isValidAddress() {
+        String addressText = address.getText().toString().trim();
+        return !addressText.isEmpty(); // Add more validation as needed
+    }
+
+    private boolean isValidMaxOccupancy() {
+        String occupancyText = maxOcc.getText().toString().trim();
+        if (occupancyText.isEmpty()) {
+            return false;
+        }
+
+        try {
+            int occupancy = Integer.parseInt(occupancyText);
+            return occupancy > 0; // Additional conditions can be added
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private boolean isValidDates() {
+        String startDateText = startDate.getText().toString().trim();
+        String endDateText = endDate.getText().toString().trim();
+
+        if (startDateText.isEmpty() || endDateText.isEmpty()) {
+            return false;
+        }
+
+        Date startDate = parseDate(startDateText);
+        Date endDate = parseDate(endDateText);
+
+        // Check if end date is later than start date
+        return endDate.after(startDate);
+    }
+
+    private Date parseDate(String dateString) {
+        // You need to implement the logic to parse the date string into a Date object
+        // For example, you can use SimpleDateFormat
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            return dateFormat.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 }

@@ -1,41 +1,50 @@
 // Shelter.java
 package com.example.app;
 
-public class Shelter {
+import android.widget.ImageView;
 
-    private String name;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Shelter implements Serializable {
+    private static int nextId = 1;
+    private int ID;
     private String city;
     private String listerName;
     private String address;
     private String privacy;
     private boolean petFriendly;
     private boolean smokeFriendly;
-    private int occupancy;
-    private String image;
-    private String review;
+    private String occupancy;
+    private String startDate;
+    private String endDate;
+    private ImageView image;
+    private ArrayList<String> review;
     private double rating;
 
-    public Shelter(String listerName, String name, String city, String address, String privacy,
-                   boolean petFriendly, boolean smokeFriendly, int occupancy,
-                   String image, String review, double rating) {
+    public Shelter(String listerName, String city, String address, String privacy,
+                   boolean petFriendly, boolean smokeFriendly, String occupancy, String startDate, String endDate,
+                   ImageView image, ArrayList<String> review, double rating) {
         this.listerName = listerName;
-        this.name = name;
         this.city = city;
         this.address = address;
         this.privacy = privacy;
         this.petFriendly = petFriendly;
         this.smokeFriendly = smokeFriendly;
         this.occupancy = occupancy;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.image = image;
         this.review = review;
         this.rating = rating;
     }
 
     // Getters
-    public String getName() {
-        return name;
+    public int getID() {return ID;}
+    private static int getNextId() {
+        return nextId++;
     }
-
     public String getCity() {
         return city;
     }
@@ -60,15 +69,15 @@ public class Shelter {
         return smokeFriendly;
     }
 
-    public int getOccupancy() {
+    public String getOccupancy() {
         return occupancy;
     }
 
-    public String getImage() {
+    public ImageView getImage() {
         return image;
     }
 
-    public String getReview() {
+    public ArrayList<String> getReviews() {
         return review;
     }
 
@@ -77,9 +86,6 @@ public class Shelter {
     }
 
     // Setters
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public void setCity(String city) {
         this.city = city;
@@ -105,15 +111,15 @@ public class Shelter {
         this.smokeFriendly = smokeFriendly;
     }
 
-    public void setOccupancy(int occupancy) {
+    public void setOccupancy(String occupancy) {
         this.occupancy = occupancy;
     }
 
-    public void setImage(String image) {
+    public void setImage(ImageView image) {
         this.image = image;
     }
 
-    public void setReview(String review) {
+    public void setReview(ArrayList<String> review) {
         this.review = review;
     }
 

@@ -30,9 +30,9 @@ public class ShelterManager {
         shelters.add(shelter);
     }
 
-    public Shelter getShelterByName(String name) {
+    public Shelter getShelterByID(int ID) {
         for (Shelter shelter : shelters) {
-            if (shelter.getName().equals(name)) {
+            if (shelter.getID() == ID) {
                 return shelter;
             }
         }
