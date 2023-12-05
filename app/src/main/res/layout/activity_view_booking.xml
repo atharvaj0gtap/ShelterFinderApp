@@ -7,6 +7,19 @@
     android:layout_gravity="center_horizontal"
     tools:context=".ViewBooking">
 
+    <TextView
+        android:id="@+id/usernameView1"
+        android:layout_width="91dp"
+        android:layout_height="20dp"
+        android:drawableLeft="@drawable/username"
+        android:text="username"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.979"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.011" />
+
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
@@ -25,7 +38,7 @@
         android:id="@+id/bookButton"
         android:layout_width="128dp"
         android:layout_height="56dp"
-        android:onClick="onList"
+        android:onClick="onBook"
         android:text="Book"
         android:textSize="20dp"
         android:textStyle="bold"
