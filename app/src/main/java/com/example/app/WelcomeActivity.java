@@ -28,7 +28,9 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void onFind(View v){
-
+        Intent intent = new Intent(this, SearchListing.class);
+        intent.putExtra("username", username.getText().toString());
+        startActivity(intent);
     }
 
 

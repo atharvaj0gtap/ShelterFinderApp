@@ -1,12 +1,15 @@
 package com.example.app;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class SearchListing extends AppCompatActivity {
-
+        TextView username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,5 +29,9 @@ public class SearchListing extends AppCompatActivity {
 
         // Apply the adapter to the spinner
         privacySpinner.setAdapter(adapter);
+
+        Intent intent = getIntent();
+        username= findViewById(R.id.textView11);
+        username.setText(intent.getStringExtra("username"));
     }
 }

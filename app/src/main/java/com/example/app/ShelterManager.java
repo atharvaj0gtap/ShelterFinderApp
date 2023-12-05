@@ -22,7 +22,6 @@ public class ShelterManager {
         shelters.add(shelter3);
     }
 
-
     public static ShelterManager getInstance() {
         if (instance == null) {
             instance = new ShelterManager();
