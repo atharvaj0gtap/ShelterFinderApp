@@ -215,7 +215,6 @@ public class Listing extends AppCompatActivity {
 
     private Date parseDate(String dateString) {
         // You need to implement the logic to parse the date string into a Date object
-        // For example, you can use SimpleDateFormat
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         try {
             return dateFormat.parse(dateString);
