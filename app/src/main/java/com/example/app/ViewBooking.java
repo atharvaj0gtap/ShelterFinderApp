@@ -27,7 +27,7 @@ public class ViewBooking extends AppCompatActivity {
         setContentView(R.layout.activity_view_booking);
 
         Intent intent = getIntent();
-        //username = findViewById(R.id.usernameView1);
+        username = findViewById(R.id.usernameView1);
         //username.setText(intent.getStringExtra("username"));
 
         fromdate = (EditText) findViewById(R.id.fromdateInp);
@@ -87,8 +87,12 @@ public class ViewBooking extends AppCompatActivity {
             Toast.makeText(this, "Please enter a valid to and/or from date", Toast.LENGTH_SHORT).show();
         else if(!isValidOccupancy())
             Toast.makeText(this, "Please enter a valid Occupancy (Hint: Integer > 0 )", Toast.LENGTH_SHORT).show();
-        else
+        else {
             Toast.makeText(this, "Booked successfully", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, WelcomeActivity.class);
+            // Add booking under users account
+            startActivity(intent);
+        }
     }
 
     private boolean isValidOccupancy() {
