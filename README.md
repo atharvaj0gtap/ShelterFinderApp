@@ -1,5 +1,5 @@
 # App-development
-A project that uses java development on Android Studio to create apps.
+A project that uses java development on Android Studio to create an app.
 
 ## Shelter Finder App
 
