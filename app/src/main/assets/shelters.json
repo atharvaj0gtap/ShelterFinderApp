@@ -1,0 +1,44 @@
+[
+  {
+    "city": "Kelowna",
+    "listerName": "Jim Halpert",
+    "address": "655 Loughborough St.",
+    "privacy": "Private",
+    "petFriendly": true,
+    "smokeFriendly": false,
+    "occupancy": 5,
+    "stayDuration": 7,
+    "rating": 4.5,
+    "imagePath": "align_west_the_orchard_builder_feautre",
+    "reviews": ["Lovely place to stay good host","Jim helped my family in a dire situtation with a lovely temporary home"]
+  },
+  {
+    "city": "Kelowna",
+    "listerName": "Zidane D'Costa",
+    "address": "655 Academy Way",
+    "privacy": "Public",
+    "petFriendly": false,
+    "smokeFriendly": true,
+    "occupancy": 5,
+    "stayDuration": 14,
+    "rating": 3.8,
+    "imagePath": "academyway",
+    "reviews": ["Review 3", "Review 4"]
+  },
+  {
+    "city": "Vancouver",
+    "listerName": "Maya John",
+    "address": "Marine Drive",
+    "privacy": "Public",
+    "petFriendly": true,
+    "smokeFriendly": true,
+    "occupancy": 6,
+    "stayDuration": 30,
+    "rating": 0.0,
+    "imagePath": "marinedrive",
+    "reviews": []
+  }
+
+
+
+]
