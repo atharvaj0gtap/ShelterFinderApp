@@ -37,8 +37,50 @@
     "rating": 0.0,
     "imagePath": "marinedrive",
     "reviews": []
-  }
+  },
+
+    {
+      "city": "Vancouver",
+      "listerName": "Amanda Johnson",
+      "address": "123 Bay Street",
+      "privacy": "Private",
+      "petFriendly": true,
+      "smokeFriendly": false,
+      "occupancy": 4,
+      "stayDuration": 10,
+      "rating": 4.2,
+      "imagePath": "baystreet",
+      "reviews": ["Great location!", "Amanda is a wonderful host."]
+    },
+    {
+      "city": "Kelowna",
+      "listerName": "Carlos Rodriguez",
+      "address": "789 Granville Street",
+      "privacy": "Public",
+      "petFriendly": true,
+      "smokeFriendly": true,
+      "occupancy": 8,
+      "stayDuration": 21,
+      "rating": 4.8,
+      "imagePath": "granvillestreet",
+      "reviews": ["Amazing view from the apartment.", "Highly recommended."]
+    },
+    {
+      "city": "Kelowna",
+      "listerName": "Emily White",
+      "address": "456 Oak Avenue",
+      "privacy": "Private",
+      "petFriendly": false,
+      "smokeFriendly": false,
+      "occupancy": 3,
+      "stayDuration": 5,
+      "rating": 3.5,
+      "imagePath": "oakavenue",
+      "reviews": ["Cozy and comfortable.", "Emily is a friendly host."]
+    }
+  ]
 
 
 
-]
+
+

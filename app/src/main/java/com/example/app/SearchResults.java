@@ -104,7 +104,7 @@ public class SearchResults extends AppCompatActivity {
             }
 
             // Filter based on occupancy
-            if (numGuests > 0 && shelter.getOccupancy() < numGuests) {
+            if (numGuests >= 0 && shelter.getOccupancy() < numGuests) {
                 continue;
             }
 
