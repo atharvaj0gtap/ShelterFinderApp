@@ -120,6 +120,21 @@ public class Listing extends AppCompatActivity {
     }
 
     public void onList(View v) {
+        if(!isValidCity()){
+            Toast.makeText(this, "Please enter a valid city", Toast.LENGTH_SHORT).show();
+        }
+        else if(!isValidAddress()){
+            Toast.makeText(this, "Please enter a valid address", Toast.LENGTH_SHORT).show();
+        }
+        else if(!isValidMaxOccupancy()){
+            Toast.makeText(this, "Please enter a valid Max Occupancy. Hint:Integer > 0", Toast.LENGTH_SHORT).show();
+        }
+        else if(!isValidDates()){
+            Toast.makeText(this, "Please enter valid dates. Hint: Check-out date after Check-in date", Toast.LENGTH_SHORT).show();
+        }
+
+
+
         if (isValidCity() && isValidAddress() && isValidMaxOccupancy() && isValidDates()) {
             Shelter newShelter = createShelterFromInput();
             shelters.add(newShelter);
